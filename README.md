@@ -31,14 +31,15 @@ Esta sessão consiste em elencar os problemas que encontrei por análise manual 
 
 ### code-smells-project
 
-| Problema                                                                         | Arquivo de referência                        | Linha de referência | Observação                                                                      |
-|:---------------------------------------------------------------------------------|:---------------------------------------------|:--------------------|:--------------------------------------------------------------------------------|
-| **Chaves expostas** no código                                                    | `app.py`                                     | 7                   | `app.config["SECRET_KEY"]` hard-coded                                           |
-| **Chaves expostas** no código                                                    | `controllers.py`                             | 289                 | `secret_key` no endpoint de `health_check`                                      |
-| **Rotas sensíveis desprotegidas** sem middleware de autenticação                 | `app.py`                                     | 47                  | Rota `/admin/reset-db`                                                          |
-| Modo #sóvai, ou seja, **ausência de confirmação** para operações críticas        | *Não especificado*                           | 48                  | Função `reset_database`                                                         |
-| **Excesso de responsabilidades** nos carecendo de separação (SRP) em serviços    | `controllers.py`/`database.py`/`models.py`   | *Não especificado*  | Aplicação de Service Layer Pattern                                              |
-| **Senhas descriptografadas**                                                     | `database.py`                                | 76                  | Poderia dar um desconto por ser um mock e talvez ter sido intencional, MAAAS... |
+| Problema                                                                      | Arquivo de referência                      | Linha de referência  | Observação                                                                             | Severidade |
+|:------------------------------------------------------------------------------|:-------------------------------------------|:---------------------|:---------------------------------------------------------------------------------------|:-----------|
+| **Chaves expostas** no código                                                 | `app.py`/`controllers.py`                  | 7/289                | `app.config["SECRET_KEY"]` hard-coded / `secret_key` no endpoint de `health_check`     | CRITICAL   |
+| Modo #sóvai, ou seja, **ausência de confirmação** para operações críticas     | `app.py`                                   | 48                   | Função `reset_database`                                                                | HIGH       |
+| **Rotas sensíveis desprotegidas** sem middleware de autenticação              | `app.py`                                   | 47                   | Rota `/admin/reset-db`                                                                 | HIGH       |
+| **Senhas descriptografadas**                                                  | `database.py`                              | 76                   | Poderia dar um desconto por ser um mock e talvez ter sido intencional, MAAAS...        | MEDIUM     |
+| Não encontrei um `db_connection.close` para fechar conexão com banco de dados | `database.py`                              | *Não especificado*   | Fechar conexão com o banco de dados para evitar leak de memória e performance          | MEDIUM     |
+| **Excesso de responsabilidades** nos carecendo de separação (SRP) em serviços | `controllers.py`/`database.py`/`models.py` | *Não especificado*   | Aplicação de Service Layer Pattern                                                     | LOW        |
+| Modo **Debug** ativado                                                        | `app.py`                                   | 8                    | Interessante ativar de acordo com o ambiente de execução                               | LOW        |
 
 ### ecommerce-api-legacy
 
