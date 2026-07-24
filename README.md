@@ -88,9 +88,16 @@ Files:   4 analyzed | ~780 lines of code
 CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
 ```
 - Comparação antes/depois da estrutura de cada projeto
-// @todo colocar os prints aqui
 
-- Checklist de validação preenchido para cada projeto
+**code-smells-project**
+
+**Antes:**
+
+<img width="388" height="430" alt="code-smells-project-before" src="https://github.com/user-attachments/assets/88793e34-24df-42ac-b08e-39bb134d152c" />
+
+**Depois:**
+
+<img width="388" height="823" alt="code-smells-project-after" src="https://github.com/user-attachments/assets/533b2812-bb76-479a-bad3-a095ea132f14" />
 
 ## Checklist de Validação :: code-smells-project
 
@@ -106,7 +113,10 @@ CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
 - [x] Findings ordenados por severidade (CRITICAL → LOW)
 - [x] Mínimo de 5 findings identificados
 - [ ] Detecção de APIs deprecated incluída (se aplicável)
-- [x] Skill pausa e pede confirmação antes da Fase 3 // @todo colocar o print
+- [x] Skill pausa e pede confirmação antes da Fase 3
+
+<img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
+
 
 ### Fase 3 — Refatoração
 - [x] Estrutura de diretórios segue padrão MVC
@@ -120,9 +130,17 @@ CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
 - [x] Endpoints originais respondem corretamente
 
 - Screenshots ou logs mostrando as aplicações rodando após refatoração
+
+**code-smells-project**
+
+<img width="1892" height="802" alt="code-smells-project-phase3-final-log" src="https://github.com/user-attachments/assets/564f6c17-36b8-449e-a5b0-378aa4fec495" />
+
 - Observações sobre como a skill se comportou em stacks diferentes
 
 ## ️💻 Como executar
-Pré-requisitos (a ferramenta escolhida — Claude Code, Gemini CLI ou Codex — instalada e configurada)
-Comandos para executar a skill em cada projeto
-Como validar que a refatoração funcionou
+- Ter o Claude Code CLI instalado e configurado
+- A partir da raiz deste repositório, abrir o terminal, navegar até o diretório do projeto a ser analisado e executar o comando conforme exemplo abaixo:
+```bash
+cd code-smells-project
+claude "/refactor-arch"
+```
