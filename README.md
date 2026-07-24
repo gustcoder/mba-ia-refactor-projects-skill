@@ -109,15 +109,15 @@ CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
 - [x] Skill pausa e pede confirmação antes da Fase 3 // @todo colocar o print
 
 ### Fase 3 — Refatoração
-- [ ] Estrutura de diretórios segue padrão MVC
-- [ ] Configuração extraída para módulo de config (sem hardcoded)
-- [ ] Models criados para abstrair dados
-- [ ] Views/Routes separadas para visualização ou roteamento
-- [ ] Controllers concentram o fluxo da aplicação
-- [ ] Error handling centralizado
-- [ ] Entry point claro
-- [ ] Aplicação inicia sem erros
-- [ ] Endpoints originais respondem corretamente
+- [x] Estrutura de diretórios segue padrão MVC
+- [x] Configuração extraída para módulo de config (sem hardcoded) (`config/settings`)
+- [x] Models criados para abstrair dados
+- [x] Views/Routes separadas para visualização ou roteamento
+- [x] Controllers concentram o fluxo da aplicação
+- [x] Error handling centralizado (`middlewares/error_handler.py`)
+- [x] Entry point claro
+- [x] Aplicação inicia sem erros
+- [x] Endpoints originais respondem corretamente
 
 - Screenshots ou logs mostrando as aplicações rodando após refatoração
 - Observações sobre como a skill se comportou em stacks diferentes
