@@ -58,6 +58,8 @@ Como exemplos de anti-patterns, vamos utilizar a seguinte classificação como r
 | Spaghetti Code        | MEDIUM     |
 | Lava Flow             | LOW        |
 
+Os itens mencionados na sessão "Contexto -> Definição de Severidades" também podem ser usados como critérios complementares.
+
 ## Requisitos da skill
 
 - Deve ser agnóstica de tecnologia — deve funcionar corretamente nos 3 projetos fornecidos (`code-smells-project`, `ecommerce-api-legacy` e `task-manager-api`), independente da stack ou nível de organização
