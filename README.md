@@ -31,18 +31,58 @@ Esta sessão consiste em elencar os problemas que encontrei por análise manual 
 
 ### code-smells-project
 
-| Problema                                                                      | Severidade | Arquivo                   | Linha | Observação                                                                             |
-|:------------------------------------------------------------------------------|:-----------|:--------------------------|:------|:---------------------------------------------------------------------------------------|
-| **Chaves expostas** no código                                                 | CRITICAL   | `app.py`/`controllers.py` | 7/289 | `app.config["SECRET_KEY"]` hard-coded / `secret_key` no endpoint de `health_check`     |
-| Modo #sóvai, ou seja, **ausência de confirmação** para operações críticas     | HIGH       | `app.py`                  | 48    | Função `reset_database`                                                                |
-| **Rotas sensíveis desprotegidas** sem middleware de autenticação              | HIGH       | `app.py`                  | 47    | Rota `/admin/reset-db`                                                                 |
-| **Senhas descriptografadas**                                                  | MEDIUM     | `database.py`             | 76    | Poderia dar um desconto por ser um mock e talvez ter sido intencional, MAAAS...        |
-| Não encontrei um `db_connection.close` para fechar conexão com banco de dados | MEDIUM     | `database.py`             | 10    | Fechar conexão com o banco de dados para evitar leak de memória e performance          |
-| **Excesso de responsabilidades** carecendo de separação (SRP) em contextos    | LOW        | `controllers.py`          | 24    | Aplicação de Service Layer Pattern                                                     |
-| Modo **Debug** ativado                                                        | LOW        | `app.py`                  | 8     | Interessante ativar de acordo com o ambiente de execução                               |
+| Problema                                                                      | Severidade | Arquivo                   | Linha | Justificativa                                                                      |
+|:------------------------------------------------------------------------------|:-----------|:--------------------------|:------|:-----------------------------------------------------------------------------------|
+| **Chaves expostas** no código                                                 | CRITICAL   | `app.py`/`controllers.py` | 7/289 | `app.config["SECRET_KEY"]` hard-coded / `secret_key` no endpoint de `health_check` |
+| **Excesso de responsabilidades** carecendo de separação (SRP) em contextos    | CRITICAL   | `controllers.py`          | 24    | Necessária a aplicação de Service Layer Pattern                                    |
+| Modo #sóvai, ou seja, **ausência de confirmação** para operações críticas     | HIGH       | `app.py`                  | 48    | Função `reset_database`                                                            |
+| **Rotas sensíveis desprotegidas** sem middleware de autenticação              | HIGH       | `app.py`                  | 47    | Rota `/admin/reset-db`                                                             |
+| **Senhas descriptografadas**                                                  | MEDIUM     | `database.py`             | 76    | Poderia dar um desconto por ser um mock e talvez ter sido intencional, MAAAS...    |
+| Não encontrei um `db_connection.close` para fechar conexão com banco de dados | MEDIUM     | `database.py`             | 10    | Fechar conexão com o banco de dados para evitar leak de memória e performance      |
+| Nenhuma versão de API no path (/produtos em vez de /v1/produtos)              | LOW        | `app.py`                  | 11    | Dificulta evolução futura sem quebrar clientes                                     |
+| Modo **Debug** ativado                                                        | LOW        | `app.py`                  | 8     | Interessante ativar de acordo com o ambiente de execução                           |
 
 ### ecommerce-api-legacy
 
 ### task-manager-api
 
 ---
+
+## ️🚧️ Construção da Skill
+
+### Q1. Decisões de design: como estruturou o SKILL.md e os arquivos de referência**
+R.: Utilizei as técnicas de **SDD** para estruturar meu SKILL.md usando como apoio as próprias instruções do desafio.
+Com isso elaborei e adaptei uma Spec para conter todos os requisitos necessários para alcançar o objetivo.
+Utilizei a ideia do framework **Context Mesh**, por isso o projeto contém um diretório `context/intent` onde armazenei minha spec.
+
+### Q2. Quais anti-patterns incluiu no catálogo e por quê?
+R.: 
+
+| Anti-Pattern          | Severidade |
+|-----------------------|------------|
+| Hardcoded Credentials | CRITICAL   |
+| God Class             | CRITICAL   |
+| Confused Deputy       | HIGH       |
+| Spaghetti Code        | MEDIUM     |
+| Lava Flow             | LOW        |
+
+Foram os anti-patterns mais gritantes e que me chamaram a atenção logo a primeira vista, por isso decidi registra-los como referência base para a skill.
+
+### Q3. Como garantiu que a skill é agnóstica de tecnologia
+R.: Criei uma sessão **Requisitos** na Spec onde cito os diretórios de exemplo e especifico que é expressamente obrigatório que seja agnóstica.
+
+### Q4. Desafios encontrados e como resolveu
+R.: Compor a spec inicial foi o primeiro desafio, pois consolidar uma ideia em um prompt eficiente é uma tarefa cirúgica.
+
+## ️🏆 Resultados
+//@todo 
+- Resumo dos relatórios de auditoria dos 3 projetos (quantos findings por severidade em cada)
+- Comparação antes/depois da estrutura de cada projeto
+- Checklist de validação preenchido para cada projeto
+- Screenshots ou logs mostrando as aplicações rodando após refatoração
+- Observações sobre como a skill se comportou em stacks diferentes
+
+## ️💻 Como executar
+Pré-requisitos (a ferramenta escolhida — Claude Code, Gemini CLI ou Codex — instalada e configurada)
+Comandos para executar a skill em cada projeto
+Como validar que a refatoração funcionou
