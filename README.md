@@ -75,10 +75,50 @@ R.: Criei uma sessão **Requisitos** na Spec onde cito os diretórios de exemplo
 R.: Compor a spec inicial foi o primeiro desafio, pois consolidar uma ideia em um prompt eficiente é uma tarefa cirúgica.
 
 ## ️🏆 Resultados
-//@todo 
 - Resumo dos relatórios de auditoria dos 3 projetos (quantos findings por severidade em cada)
+```
+================================
+ARCHITECTURE AUDIT REPORT
+================================
+Project: code-smells-project
+Stack:   Python + Flask
+Files:   4 analyzed | ~780 lines of code
+
+## Summary
+CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
+```
 - Comparação antes/depois da estrutura de cada projeto
+// @todo colocar os prints aqui
+
 - Checklist de validação preenchido para cada projeto
+
+## Checklist de Validação :: code-smells-project
+
+### Fase 1 — Análise
+- [x] Linguagem detectada corretamente (Python)
+- [x] Framework detectado corretamente (Flask)
+- [x] Domínio da aplicação descrito corretamente
+- [x] Número de arquivos analisados condiz com a realidade (sim, 4)
+
+### Fase 2 — Auditoria
+- [x] Relatório segue o template definido nos arquivos de referência
+- [x] Cada finding tem arquivo e linhas exatos
+- [x] Findings ordenados por severidade (CRITICAL → LOW)
+- [x] Mínimo de 5 findings identificados
+- [ ] Detecção de APIs deprecated incluída (se aplicável)
+- [x] Skill pausa e pede confirmação antes da Fase 3 // @todo colocar o print
+
+### Fase 3 — Refatoração
+- [ ] Estrutura de diretórios segue padrão MVC
+- [ ] Configuração extraída para módulo de config (sem hardcoded)
+- [ ] Models criados para abstrair dados
+- [ ] Views/Routes separadas para visualização ou roteamento
+- [ ] Controllers concentram o fluxo da aplicação
+- [ ] Error handling centralizado
+- [ ] Entry point claro
+- [ ] Aplicação inicia sem erros
+- [ ] Endpoints originais respondem corretamente
+
 - Screenshots ou logs mostrando as aplicações rodando após refatoração
 - Observações sobre como a skill se comportou em stacks diferentes
 
