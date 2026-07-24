@@ -33,7 +33,7 @@ Criar a skill dentro do projeto `.claude/skills/refactor-arch` e implementar o S
 - **Fase 2 — Auditoria:** Cruzar código contra catálogo de anti-patterns, gerar relatório, pedir confirmação
 - **Fase 3 — Refatoração:** Reestruturar para o padrão MVC, validar que funciona
 
-Crie também arquivos de referência em Markdown que forneçam à skill o conhecimento necessário para executar as 3 fases. 
+Crie também arquivos de referência em Markdown dentro de `.claude/skills/refactor-arch/references` que forneçam à skill o conhecimento necessário para executar as 3 fases. 
 Os arquivos devem cobrir **obrigatoriamente** as seguintes áreas de conhecimento:
 
 | Área de conhecimento      | O que deve conter                                                                                     |
