@@ -85,7 +85,7 @@ R.: Criei uma sessão **Requisitos** na Spec onde cito os diretórios de exemplo
 R.: Compor a spec inicial foi o primeiro desafio, pois consolidar uma ideia em um prompt eficiente é uma tarefa cirúgica.
 
 ## ️🏆 Resultados
-- Resumo dos relatórios de auditoria dos 3 projetos (quantos findings por severidade em cada)
+## Resumo dos relatórios de auditoria dos 3 projetos (quantos findings por severidade em cada)
 ```
 ================================
 ARCHITECTURE AUDIT REPORT
@@ -107,9 +107,9 @@ Files:   3 analyzed | ~180 lines of code
 ## Summary
 CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 ```
-- Comparação antes/depois da estrutura de cada projeto
+## Comparação antes/depois da estrutura de cada projeto
 
-**code-smells-project**
+### **code-smells-project**
 
 **Antes:**
 
@@ -118,6 +118,17 @@ CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 **Depois:**
 
 <img width="388" height="823" alt="code-smells-project-after" src="https://github.com/user-attachments/assets/533b2812-bb76-479a-bad3-a095ea132f14" />
+
+### **ecommerce-api-legacy**
+
+**Antes:**
+
+<img width="392" height="341" alt="ecommerce-api-legacy-before" src="https://github.com/user-attachments/assets/2dcc4b86-4f59-4972-b4a1-a3366a06e996" />
+
+**Depois:**
+
+<img width="433" height="899" alt="ecommerce-api-legacy-after" src="https://github.com/user-attachments/assets/702d77d8-2a3d-498b-b9e7-0dfd13ab37fd" />
+
 
 ## Checklist de Validação :: code-smells-project
 
@@ -167,27 +178,35 @@ CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 - [x] Detecção de APIs deprecated incluída (src/AppManager.js:37-136)
 - [x] Skill pausa e pede confirmação antes da Fase 3
 
-<img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
-
+<img width="603" height="447" alt="ecommerce-api-legacy-phase3-confirmation" src="https://github.com/user-attachments/assets/b72a009b-7169-435f-a65c-f24495aa9707" />
 
 ### Fase 3 — Refatoração
 - [x] Estrutura de diretórios segue padrão MVC
-- [x] Configuração extraída para módulo de config (sem hardcoded) (`config/settings`)
+- [x] Configuração extraída para módulo de config (sem hardcoded) (`config/settings.js`)
 - [x] Models criados para abstrair dados
 - [x] Views/Routes separadas para visualização ou roteamento
 - [x] Controllers concentram o fluxo da aplicação
-- [x] Error handling centralizado (`middlewares/error_handler.py`)
+- [x] Error handling centralizado (Ex.: `CheckoutError`)
 - [x] Entry point claro
 - [x] Aplicação inicia sem erros
 - [x] Endpoints originais respondem corretamente
 
-- Screenshots ou logs mostrando as aplicações rodando após refatoração
+## Screenshots ou logs mostrando as aplicações rodando após refatoração
 
-**code-smells-project**
+### **code-smells-project**
 
 <img width="1892" height="802" alt="code-smells-project-phase3-final-log" src="https://github.com/user-attachments/assets/564f6c17-36b8-449e-a5b0-378aa4fec495" />
 
-- Observações sobre como a skill se comportou em stacks diferentes
+### **ecommerce-api-legacy**
+
+<img width="1491" height="573" alt="ecommerce-api-legacy-checkout-success" src="https://github.com/user-attachments/assets/97263905-5de4-4123-b5f3-d79778f7986c" />
+
+<img width="1479" height="785" alt="ecommerce-api-legacy-financial-report" src="https://github.com/user-attachments/assets/17229896-dd81-4697-8ced-c012c878e870" />
+
+## Observações sobre como a skill se comportou em stacks diferentes
+
+- A Skill se comportou bem e conseguiu captar a ideia original definida em `.context/intent` aplicando os conceitos necessários em diferentes arquiteturas e stacks.
+- Interagiu com instalação/atualização de pacotes de cada projeto, a partir dos arquivos centrais de dependências, auxiliando na refatoração.
 
 ## ️💻 Como executar
 - Ter o Claude Code CLI instalado e configurado
