@@ -44,6 +44,16 @@ Esta sessão consiste em elencar os problemas que encontrei por análise manual 
 
 ### ecommerce-api-legacy
 
+| Problema                                          | Severidade | Arquivo                                          | Linha  | Justificativa                                                                                                        |
+|:--------------------------------------------------|:-----------|:-------------------------------------------------|:-------|:---------------------------------------------------------------------------------------------------------------------|
+| **Chaves expostas** no código                     | CRITICAL   | `src/utils.js`                                   | 3/4    | `dbPass` e `paymentGatewayKey` hard-coded #maldade                                                                   |
+| **GodClass** concentrando toda a carga estrutural | CRITICAL   | `src/AppManager.js`                              | 1-141  | Necessário aplicar os conceitos de MVC para separação de responsabilidades                                           |
+| Criptografia fraca                                | HIGH       | `src/utils.js`                                   | 17-23  | Base64 pode facilmente ser revertido e gerar problema de seguranaça                                                  |
+| Código-Macarrão                                   | MEDIUM     | `src/AppManager.js`                              | 28-78  | Vários níveis de identação misturando muita coisa. Interessante externalizar funções e aplicar o Object-Calisthenics |
+| Complexidade n+1                                  | MEDIUM     | `src/AppManager.js`                              | 89-127 | Utilizar `JOIN` entre as tabelas para evitar `foreach` desnecessários                                                |
+| Quebras de linha sem padrão após `if`             | LOW        | `src/AppManager.js`                              | 67     | Falta de padrão no código afeta a legibilidade do mesmo                                                              |
+| Nomes de variável pouco descritivos               | LOW        | `src/AppManager.js`                              | 29-33  | "O óbvio tem que ser dito"                                                                                           |
+
 ### task-manager-api
 
 ---
@@ -53,7 +63,7 @@ Esta sessão consiste em elencar os problemas que encontrei por análise manual 
 ### Q1. Decisões de design: como estruturou o SKILL.md e os arquivos de referência**
 R.: Utilizei as técnicas de **SDD** para estruturar meu SKILL.md usando como apoio as próprias instruções do desafio.
 Com isso elaborei e adaptei uma Spec para conter todos os requisitos necessários para alcançar o objetivo.
-Utilizei a ideia do framework **Context Mesh**, por isso o projeto contém um diretório `context/intent` onde armazenei minha spec.
+Utilizei a ideia do framework **Context Mesh**, por isso o projeto contém um diretório `.context/intent` onde armazenei minha spec.
 
 ### Q2. Quais anti-patterns incluiu no catálogo e por quê?
 R.: 
@@ -86,6 +96,16 @@ Files:   4 analyzed | ~780 lines of code
 
 ## Summary
 CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
+
+================================
+ARCHITECTURE AUDIT REPORT
+================================
+Project: ecommerce-api-legacy
+Stack:   JavaScript (Node.js) + Express 4.22.1
+Files:   3 analyzed | ~180 lines of code
+
+## Summary
+CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 ```
 - Comparação antes/depois da estrutura de cada projeto
 
@@ -113,6 +133,38 @@ CRITICAL: 8 | HIGH: 3 | MEDIUM: 4 | LOW: 3
 - [x] Findings ordenados por severidade (CRITICAL → LOW)
 - [x] Mínimo de 5 findings identificados
 - [ ] Detecção de APIs deprecated incluída (se aplicável)
+- [x] Skill pausa e pede confirmação antes da Fase 3
+
+<img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
+
+
+### Fase 3 — Refatoração
+- [x] Estrutura de diretórios segue padrão MVC
+- [x] Configuração extraída para módulo de config (sem hardcoded) (`config/settings`)
+- [x] Models criados para abstrair dados
+- [x] Views/Routes separadas para visualização ou roteamento
+- [x] Controllers concentram o fluxo da aplicação
+- [x] Error handling centralizado (`middlewares/error_handler.py`)
+- [x] Entry point claro
+- [x] Aplicação inicia sem erros
+- [x] Endpoints originais respondem corretamente
+
+---
+
+## Checklist de Validação :: ecommerce-api-legacy
+
+### Fase 1 — Análise
+- [x] Linguagem detectada corretamente (Javascript/Node.js)
+- [x] Framework detectado corretamente (Express 4.22.1)
+- [x] Domínio da aplicação descrito corretamente
+- [x] Número de arquivos analisados condiz com a realidade (sim, 4)
+
+### Fase 2 — Auditoria
+- [x] Relatório segue o template definido nos arquivos de referência
+- [x] Cada finding tem arquivo e linhas exatos
+- [x] Findings ordenados por severidade (CRITICAL → LOW)
+- [x] Mínimo de 5 findings identificados
+- [x] Detecção de APIs deprecated incluída (src/AppManager.js:37-136)
 - [x] Skill pausa e pede confirmação antes da Fase 3
 
 <img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
