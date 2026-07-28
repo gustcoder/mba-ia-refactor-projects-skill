@@ -295,5 +295,4 @@ claude "/refactor-arch"
 
 Ou iniciar o CLI do Claude já a partir de um dos projetos escolhidos, e chamar a skill `/refactor-arch` conforme print abaixo:
 
-<img width="1065" height="723" alt="using-skill" src="https://github.com/user-attachments/assets/d3ddd379-a35b-4260-b562-f40d499c4573" />
-
+<img width="1065" height="183" alt="using-skill" src="https://github.com/user-attachments/assets/c15d6b2b-275f-4263-8611-534deee226ed" />
