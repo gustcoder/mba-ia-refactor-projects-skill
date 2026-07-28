@@ -56,6 +56,15 @@ Esta sessão consiste em elencar os problemas que encontrei por análise manual 
 
 ### task-manager-api
 
+| Problema                                          | Severidade | Arquivo                                               | Linha   | Justificativa                                                                            |
+|:--------------------------------------------------|:-----------|:------------------------------------------------------|:--------|:-----------------------------------------------------------------------------------------|
+| **Chaves expostas** no código                     | CRITICAL   | `app.py:13` / `services/notification_service.py:7-10` | 13/7-10 | `SECRET_KEY` e senha de e-mail expostas, necessário guardar em um .env                   |
+| Rota para atualização de usuário sem autenticação | HIGH       | `routes/user_routes.py`                               | 92      | Necessário aplicar uma middleware admin nesta rota (e nas demais que também tem a falha) |
+| Código-Macarrão / Repetição de código             | MEDIUM     | `routes/task_routes.py`                               | 30-39   | Duplicação com implementações em `models/task.py`                                        |
+| Erro genérico                                     | MEDIUM     | `routes/task_routes.py`                               | 63      | Trazer detalhes da exceção para melhor análise                                           |
+| Libs não utilizadas                               | LOW        | `routes/task_routes.py`                               | 7       | Remover imports de `import json, os, sys, time`                                          |
+| Prioridades sem descrição                         | LOW        | `routes/report_routes.py`                             | 24-28   | Criar constantes/Enums descritivos para as prioridades                                   |
+
 ---
 
 ## ️🚧️ Construção da Skill
@@ -106,6 +115,16 @@ Files:   3 analyzed | ~180 lines of code
 
 ## Summary
 CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
+
+================================
+ARCHITECTURE AUDIT REPORT
+================================
+Project: task-manager-api
+Stack:   Python + Flask 3.0.0
+Files:   15 analyzed | ~1158 lines of code
+
+## Summary
+CRITICAL: 7 | HIGH: 4 | MEDIUM: 7 | LOW: 6
 ```
 ## Comparação antes/depois da estrutura de cada projeto
 
@@ -168,7 +187,7 @@ CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 - [x] Linguagem detectada corretamente (Javascript/Node.js)
 - [x] Framework detectado corretamente (Express 4.22.1)
 - [x] Domínio da aplicação descrito corretamente
-- [x] Número de arquivos analisados condiz com a realidade (sim, 4)
+- [x] Número de arquivos analisados condiz com a realidade (sim, 3)
 
 ### Fase 2 — Auditoria
 - [x] Relatório segue o template definido nos arquivos de referência
@@ -190,6 +209,38 @@ CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 - [x] Entry point claro
 - [x] Aplicação inicia sem erros
 - [x] Endpoints originais respondem corretamente
+
+## Checklist de Validação :: task-manager-api
+
+### Fase 1 — Análise
+- [x] Linguagem detectada corretamente (Python)
+- [x] Framework detectado corretamente (Flask)
+- [x] Domínio da aplicação descrito corretamente
+- [x] Número de arquivos analisados condiz com a realidade (sim, 15)
+
+### Fase 2 — Auditoria
+- [x] Relatório segue o template definido nos arquivos de referência
+- [x] Cada finding tem arquivo e linhas exatos
+- [x] Findings ordenados por severidade (CRITICAL → LOW)
+- [x] Mínimo de 5 findings identificados
+- [ ] Detecção de APIs deprecated incluída (se aplicável)
+- [x] Skill pausa e pede confirmação antes da Fase 3
+
+<img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
+
+
+### Fase 3 — Refatoração
+- [x] Estrutura de diretórios segue padrão MVC
+- [x] Configuração extraída para módulo de config (sem hardcoded) (`config/settings`)
+- [x] Models criados para abstrair dados
+- [x] Views/Routes separadas para visualização ou roteamento
+- [x] Controllers concentram o fluxo da aplicação
+- [x] Error handling centralizado (`middlewares/error_handler.py`)
+- [x] Entry point claro
+- [x] Aplicação inicia sem erros
+- [x] Endpoints originais respondem corretamente
+
+---
 
 ## Screenshots ou logs mostrando as aplicações rodando após refatoração
 
@@ -215,3 +266,6 @@ CRITICAL: 3 | HIGH: 4 | MEDIUM: 4 | LOW: 2
 cd code-smells-project
 claude "/refactor-arch"
 ```
+
+Ou iniciar o CLI do Claude já a partir de um dos projetos escolhidos, e chamar a skill `/refactor-arch` conforme print abaixo:
+
