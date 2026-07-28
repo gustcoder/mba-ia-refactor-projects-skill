@@ -20,8 +20,8 @@ A skill deve ser agnóstica de tecnologia, funcionando com diferentes linguagens
 
 ## 🛠️ Tecnologias e Requisitos
 
-* **Ferramenta Escolhida**: Claude Code
-* **Recurso:** Custom Skills (ou o equivalente na ferramenta escolhida)
+* **Ferramenta Escolhida**: Claude Code Pro (modelo Sonnet 5 - Esforço Alto)
+* **Recurso:** Custom Skills
 * **Formato dos arquivos de referência:** Markdown
 * **Projetos-alvo:** Python/Flask (2 projetos) e Node.js/Express (1 projeto) (fornecidos no repositório base)
 
@@ -148,6 +148,17 @@ CRITICAL: 7 | HIGH: 4 | MEDIUM: 7 | LOW: 6
 
 <img width="433" height="899" alt="ecommerce-api-legacy-after" src="https://github.com/user-attachments/assets/702d77d8-2a3d-498b-b9e7-0dfd13ab37fd" />
 
+### **task-manager-api**
+
+**Antes:**
+
+<img width="343" height="559" alt="before" src="https://github.com/user-attachments/assets/25c39e8e-0425-4649-b7f1-9d2784cefee8" />
+
+**Depois:**
+
+<img width="390" height="1132" alt="after" src="https://github.com/user-attachments/assets/43506a59-fe48-4602-ace9-d60130f4cb31" />
+
+---
 
 ## Checklist de Validação :: code-smells-project
 
@@ -226,8 +237,7 @@ CRITICAL: 7 | HIGH: 4 | MEDIUM: 7 | LOW: 6
 - [ ] Detecção de APIs deprecated incluída (se aplicável)
 - [x] Skill pausa e pede confirmação antes da Fase 3
 
-<img width="657" height="496" alt="code-smells-project-phase3-confirmation" src="https://github.com/user-attachments/assets/ad6ee876-0934-41e0-b59d-193c2a3cdc87" />
-
+<img width="611" height="194" alt="phase3-confirmation" src="https://github.com/user-attachments/assets/c02a815f-09e1-452a-9186-b8da2f73867f" />
 
 ### Fase 3 — Refatoração
 - [x] Estrutura de diretórios segue padrão MVC
@@ -248,11 +258,27 @@ CRITICAL: 7 | HIGH: 4 | MEDIUM: 7 | LOW: 6
 
 <img width="1892" height="802" alt="code-smells-project-phase3-final-log" src="https://github.com/user-attachments/assets/564f6c17-36b8-449e-a5b0-378aa4fec495" />
 
+<img width="1489" height="582" alt="login" src="https://github.com/user-attachments/assets/605c8400-2bb2-49fa-bf7b-bf7afacc0305" />
+
+<img width="1493" height="570" alt="cria-produto" src="https://github.com/user-attachments/assets/7352c82e-55b8-43c6-9744-728de22e12b5" />
+
+<img width="1493" height="648" alt="lista-produtos" src="https://github.com/user-attachments/assets/a84e1dc0-9e1b-44e5-a843-141dd9de5eab" />
+
 ### **ecommerce-api-legacy**
 
 <img width="1491" height="573" alt="ecommerce-api-legacy-checkout-success" src="https://github.com/user-attachments/assets/97263905-5de4-4123-b5f3-d79778f7986c" />
 
 <img width="1479" height="785" alt="ecommerce-api-legacy-financial-report" src="https://github.com/user-attachments/assets/17229896-dd81-4697-8ced-c012c878e870" />
+
+### **task-manager-api**
+
+<img width="1873" height="460" alt="final-log" src="https://github.com/user-attachments/assets/0d3e13ac-7dae-4f7e-8a11-7d37e8cbbd3a" />
+
+<img width="1477" height="623" alt="login" src="https://github.com/user-attachments/assets/93b29fa2-fc66-4c4b-8498-65ce39ea7761" />
+
+<img width="1488" height="715" alt="create-task" src="https://github.com/user-attachments/assets/579c4b0d-985a-48c4-830c-d49c703c96f9" />
+
+<img width="1489" height="671" alt="task-done" src="https://github.com/user-attachments/assets/37ebaffc-2c00-442e-83c7-ea80c70ef3a8" />
 
 ## Observações sobre como a skill se comportou em stacks diferentes
 
@@ -268,4 +294,6 @@ claude "/refactor-arch"
 ```
 
 Ou iniciar o CLI do Claude já a partir de um dos projetos escolhidos, e chamar a skill `/refactor-arch` conforme print abaixo:
+
+<img width="1065" height="723" alt="using-skill" src="https://github.com/user-attachments/assets/d3ddd379-a35b-4260-b562-f40d499c4573" />
 
